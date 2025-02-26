@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-book-list',
-  imports: [],
+  imports: [NgFor],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
@@ -20,6 +21,7 @@ export class BookListComponent implements OnInit {
   loadBooks() {
     this.bookService.getBooks().subscribe((data: any) => {
       this.books = data;
+      console.log(this.books);
     });
   }
 
